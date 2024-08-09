@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= product.name %>
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%= product.name %>
+    </h1>
+    <ul>
+        <li>Category:<%= product.category %>
+        </li>
+        <li>Price:$<%= product.price %>
+        </li>
+    </ul>
+
+    <a href="/products">Show all products</a>
+    <!-- we did not directly link index.ejs because it leads to page not found we have to go through the it's  -->
+</body>
+
+</html>
