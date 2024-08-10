@@ -9,15 +9,15 @@
     <h1>Edit a Product</h1>
     <form action="/products/<%=product._id%>/edit?_method=PUT" method="POST"><!-- due to method override we have to put the edit? thinggit -->
         <label for="name">Product Name</label>
-        <input type="text" name="name" id="name" placeholder= "<%=product.name %>" value="<%=product.name  %>">
+        <input type="text" name="name" id="name" placeholder= "product.name" value="<%=product.name  %>">
         <label for="price">Price (Unit)</label>
-        <input type="number" name="price" id="price" placeholder="<%=product.price  %>" value="<%=product.price  %>">
+        <input type="number" name="price" id="price" placeholder="Product price" value="<%=product.price  %>">
         <label for="category">Select Category</label>
         <select name="category" id="category" placeholder="<%= product.category %>" value="<%= product.category %>">
-            <option value="fruit">fruit <%=product.category==='fruit'? 'selected':'' %></option><!-- if product.category is equal to fruit then we are going to add the selected attribute otherwise, we'll just add nothing -->
-            <option value="vegetable">vegetable<%=product.category==='vegetable'? 'selected':'' %></option></option><!-- it is the ternary operator, where the first value is what happens if the condition is true and the second value is for the false  -->
-            <option value="dairy">dairy<%=product.category==='dairy'? 'selected':'' %></option></option>
-        </select>
+            <% for(let category of categories){ %>
+            <option value="<%= category %>"<%=product.category===category? 'selected':'' %>><%= category %></option><!-- it is the ternary operator, where the first value is what happens if the condition is true and the second value is for the false  -->
+            <% } %> 
+        </select>   
         <button class="submit">submit</button>
     </form>
     <a href="/products/<%=product._id%>">Cancel</a>
