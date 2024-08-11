@@ -65,7 +65,12 @@ app.put('/products/:id/edit',async(req,res)=>{/* PUT AND PATCH REQUESTS ARE USED
    
     res.redirect(`/products/${product._id}`)/* we could have just referenced id but that would have broke the code because there is a await in the former line and therefore we have added product._id so that it awaits until product is found and then redirects */
 })
-
+app.delete('/products/:id',async(req,res)=>{/* so now because of method override we can now add DELETE request in an HTML file */
+const {id}=req.params;
+const deletedProduct= await Product.findByIdAndDelete(id)
+res.redirect('/products')
+})
+    
 app.listen(3000,()  =>{
     console.log("APP IS LISTENING ON PORT 3000!")
 })

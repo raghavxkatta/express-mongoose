@@ -22,7 +22,12 @@
 
     <a href="/products">Show all products</a>
     <a href="/products/<%= product._id %>/edit">Edit Product</a>
+    
     <!-- we did not directly link index.ejs because it leads to page not found we have to go through the it's  -->
+    <form action="/products/<%= product._id %>?_method=DELETE" method="post"><!-- method waala portion again is the method override,so since an HTML function can only be a get or a post request. So the method is basically to trick the server into thinking it is a delete request, _method=DELETE lets you do the trick even though the form submits as POST the server will treat it as a DELETE -->
+<!-- this is because HTML limits us, we can't directly make PUT,PATCH or DELETE REQUESTS<  -->
+<button>Delete</button>
+</form>
 </body>
 
 </html>
